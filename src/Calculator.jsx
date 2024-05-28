@@ -1,7 +1,7 @@
 import { Display } from "./Display";
 import { useState } from "react";
 import { Button } from "./Buttons/Button";
-import { OperationButtons } from "./Buttons/OperationButtons";
+// import { OperationButtons } from "./Buttons/OperationButtons";
 
 export function Calculator() {
   const [textToDisplay, setTextToDisplay] = useState("");
@@ -43,6 +43,12 @@ export function Calculator() {
     setTextToDisplay(result);
   }
 
+  function clearAll(){
+    setOperation("");
+    setNumbers([]);
+    setTextToDisplay("");
+  }
+
   return (
     <section className="flex justify-center">
       <div className="bg-white bg-opacity-10 w-1/2 text-white grid grid-cols-4 grid-rows-6">
@@ -64,6 +70,8 @@ export function Calculator() {
         <Button val={"0"} func={showText} />
 
         <Button val={"="} func={calculateResult} />
+
+        <Button val={"CANC"} func={clearAll}/>
       </div>
     </section>
   );
